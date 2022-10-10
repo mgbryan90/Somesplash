@@ -1,0 +1,24 @@
+<section class="section-sm">
+  <h1 class="mb-4">Categories</h1>
+  <%=link_to "New category", new_category_path, class: "button button--secondary button--sm fit-content mb-4"%>
+
+  <div>
+    <% @categories.each do |category|%>
+      <div class="card-list category-card mb-8">
+        <%if category.cover.attached?%>
+          <%=image_tag category.cover, class: "category-card__image"%>
+        <%end%>
+        <div class="category-card__content">
+          <%=link_to category.name, category_path(category), class: "heading--sm bold"%>
+          <p class="content-sm category-card__photos_count regular text-color-gray-300"><%=category.photos_count%> photos</p>
+          <p><%= category.description %></p>
+        </div>
+        <div class="category-card__icons">
+          <%=link_to image_tag("icons/icon_edit.png"), edit_category_path(category)%>
+          <%=link_to image_tag('icons/icon_delete.png'), category_path(category), data: { turbo_method: :delete, 
+                                                                turbo_confirm: "Are you Sure?" }%>
+        </div>
+      </div>
+    <%end%>
+  </div>
+</section>

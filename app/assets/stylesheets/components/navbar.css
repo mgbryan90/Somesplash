@@ -1,0 +1,27 @@
+.header {
+  position: relative;
+  padding: 2rem;
+  background-color: white;
+  box-shadow: var(--shadow-sm);
+}
+  
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* .navbar__menu-icon,
+.navbar__menu-icon-close {
+  height: 1.5em;
+  display: none;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--gray-500);
+} */

@@ -1,0 +1,24 @@
+<%=form_with model: category do |f|%>
+      <div class="input mb-4">
+        <%=f.label :name, class: "content-xs overline"%>
+        <div class="input__container">
+          <%=f.text_field :name, class: "input__content"%>
+        </div>        
+      </div>
+
+      <div class="input mb-4">
+        <%=f.label :description, class: "content-xs overline"%>
+        <div class="input__container">
+          <%=f.text_area :description,class: "input__content"%>
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <%=f.label :cover, class: "content-xs overline"%>
+        <div class= "">
+          <%=f.file_field :cover, accept: "image/png, image/jpeg", class:"content-xs"%>
+        </div>
+      </div>
+
+      <%=f.submit class: "button button-full-width button--secondary mb-4"%>
+    <%end%>

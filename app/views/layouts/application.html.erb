@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SomesplashW9exC7Team4</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <div class="header">
+      <header class="navbar">
+        <%=link_to image_tag("somesplash.png"), categories_path%>
+        <%=link_to "Search", search_path, class: "button button--subtle button--sm fit-content"%>
+      </header>
+    </div>
+    <%= yield %>
+    <footer class="footer">
+      <p>Build with ♥ by</p>
+      <div class="footer__social_links">
+        <div>
+          <a href=""><%= image_tag("icons/linkedin_icon.png")%></a>
+          <span>Bryan Mendoza</span>
+        </div>
+        <div>
+          <a href=""><%= image_tag("icons/linkedin_icon.png")%></a>
+          <span>Diego Paccotaype</span>
+        </div>
+        <div>
+          <a href=""><%= image_tag("icons/linkedin_icon.png")%></a>
+          <span>Fátima Gallardo</span>
+        </div>
+        <div>
+          <a href=""><%= image_tag("icons/linkedin_icon.png")%></a>
+          <span>Joshua Sosa</span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

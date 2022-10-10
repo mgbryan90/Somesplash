@@ -1,0 +1,38 @@
+<section class="section-sm">
+  <div class="card-list mb-8">
+    <h1 class="heading-sm bold"> <%= @photo.title%></h1>
+    <p><%= @photo.description%></p>
+    <p class="content-xs text-color-gray-300"><%= @photo.updated_at.strftime("Updated at %B %d, %Y")%></p>
+
+    <%if @photo.image.attached?%>
+      <%=image_tag @photo.image, class: "photo-card__image"%>
+    <%end%>
+  </div>
+
+  <%=form_with url: comments_path(photo_id: @photo.id) do |f|%>
+        <div class="input">
+          <div class="input__container mb-2">
+            <%=f.text_area :body,class: "input__content"%>
+          </div>
+        </div>
+        <%=f.submit "Comment",class: "button button--secondary button-full-width mb-4" %>
+  <%end%>
+
+    <div>
+    <h2 class="heading--xs mb-24px">Comments</h2>
+    <% @comments.order(created_at: :desc).each do |comment|%>
+      <div class="py-2 border-top">
+        <div>
+          <p><%= comment.body %></p>
+        </div>
+        <div class="flex items-center space-between">
+          <p class="content-xs text-color-gray-300">Send <%= time_ago_in_words(comment.created_at)%> ago</p>
+          <%=link_to image_tag('icons/icon_delete.png'), comment_path(comment), data: { turbo_method: :delete, 
+                                                                turbo_confirm: "Are you Sure?" }%>
+        </div>
+      </div>
+    <%end%>
+  </div>
+</section>
+
+

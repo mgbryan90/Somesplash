@@ -1,0 +1,59 @@
+<div class="section-sm">
+  <h1 class="mb-4"><%=@category.name%></h1>
+  <p class="mb-4"><%=@category.description%></p>
+
+  <%= link_to "New photo", new_photo_path(category_id: @category.id), class: "button button--secondary button--sm fit-content mb-4"%>
+
+  <div>
+    <%@photos.each do |photo|%>
+      <div class="card-list category-card mb-8">
+        <%if photo.image.attached?%>
+          <%=image_tag photo.image, class: "category-card__image"%>
+        <%end%>
+        <div class="category-photos-card__content">
+          <div>
+            <%=link_to photo.title, photo_path(photo), class: "heading--sm bold"%>
+          </div>
+          <div class="category-card__option">
+            <div>
+              <p class="content-sm regular text-color-gray-300"> <%= photo.comments_count %> comments</p>
+            </div>
+            <div>
+              <%=link_to image_tag("icons/icon_edit.png"), edit_photo_path(photo)%>
+              <%=link_to image_tag('icons/icon_delete.png'), photo_path(photo), data: { turbo_method: :delete, 
+                                                                    turbo_confirm: "Are you Sure?" }%>
+            </div>
+          </div>
+        </div>
+      </div>
+    <%end%>
+  </div>
+
+  <%=form_with url: comments_path(category_id: @category.id) do |f|%>
+        <div class="input">
+          <div class="input__container mb-2">
+            <%=f.text_area :body,class: "input__content"%>
+          </div>
+        </div>
+        <%=f.submit "Comment",class: "button button-full-width button--secondary mb-4" %>
+  <%end%>
+
+  <div>
+    <h2 class="heading--xs mb-24px">Comments</h2>
+    <% @comments.order(created_at: :desc).each do |comment|%>
+      <div class="py-2 border-top">
+        <div>
+          <p><%= comment.body %></p>
+        </div>
+        <div class="flex items-center space-between">
+          <p class="content-xs text-color-gray-300">Send <%= time_ago_in_words(comment.created_at)%> ago</p>
+          <%=link_to image_tag('icons/icon_delete.png'), comment_path(comment), data: { turbo_method: :delete, 
+                                                                turbo_confirm: "Are you Sure?" }%>
+        </div>
+      </div>
+    <%end%>
+  </div>
+
+
+
+</div>

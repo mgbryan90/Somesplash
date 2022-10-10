@@ -1,0 +1,69 @@
+.input,
+.select {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  width: fit-content;
+  width: 100%;
+}
+
+.input__container,
+.select__input {
+  border: 1px solid var(--gray-200);
+  padding: 0.5em 0.75em;
+  border-radius: 0.375em;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  background-color: white;
+  /* width: 100%; */
+}
+
+.input__content {
+  padding: 0;
+  margin: 0;
+  border: none;
+  width: 100%;
+}
+
+.input__content:focus {
+  outline: none;
+}
+
+.input__content::placeholder {
+  color: var(--gray-200);
+}
+
+.input__container:focus-within {
+  box-shadow: var(--shadow-input-primary);
+  border: 1px solid var(--primary-300);
+}
+
+.input--error .input__container:focus-within {
+  box-shadow: var(--shadow-input-error);
+}
+
+.input--error .input__container,
+.select--error .select__input {
+  border: 1px solid var(--error-300);
+}
+
+.input--error .input__content::placeholder {
+  color: var(--error-100);
+}
+
+/* Radio Button & Checkbox */
+
+.radio-btn,
+.checkbox {
+  display: flex;
+  gap: 10px;
+}
+
+.radio-btn__input,
+.checkbox__input {
+  padding: 1px 6px;
+  background: #efefef;
+  border: 1px solid #000000;
+  border-radius: 4px;
+}

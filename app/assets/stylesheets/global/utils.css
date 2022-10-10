@@ -1,0 +1,79 @@
+/* colors */
+
+.bg-gray-100 {
+  background-color: var(--white);
+}
+
+.text-color-gray-300 {
+  color: var(--gray-300);
+}
+
+.center-text {
+  text-align: center;
+}
+
+/* Margins */
+.mb-8 {
+  margin-bottom: 2rem;
+}
+
+.mb-4 {
+  margin-bottom: 1rem;
+}
+
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
+
+.mb-1 {
+  margin-bottom: 0.25rem;
+}
+
+.mb-24px {
+  margin-bottom: 1.5rem;
+}
+
+/* Flex & Grid */
+.flex {
+  display: flex;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.wrap {
+  flex-wrap: wrap;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+
+.gap-4 {
+  gap: 1rem;
+}
+
+.items-center {
+  align-items: center;
+}
+
+/* Width */
+.fit-content {
+  width: fit-content;
+}
+
+/*Padding*/
+.py-2 {
+  padding: 0.5rem 0;
+}
+
+/*Border*/
+.border-top {
+  border-top: 2px solid var(--gray-200);
+}
+
+/*Box shadows*/
+.shadow-lg {
+  box-shadow: var(--shadow-lg);
+}

@@ -1,0 +1,30 @@
+<%=form_with model: photo do |f|%>
+      <div class="input">
+        <%=f.label :title, class: "content-xs overline"%>
+        <div class="input__container">
+          <%=f.text_field :title, class: "input__content"%>
+        </div>
+      </div>
+
+      <div class="input mb-4">
+        <%=f.label :description, class: "content-xs overline"%>
+        <div class="input__container">
+          <%=f.text_area :description,class: "input__content"%>
+        </div>
+      </div>
+
+      <div class="select mb-4">
+        <%=f.label :category_id, class: "content-xs overline"%>
+        <%= f.collection_select :category_id, Category.order(:name), :id, :name, { selected: category.id }, class: "select__input" %>
+      </div>
+
+      <div class="mb-4">
+        <%=f.label :image, class: "content-xs overline"%>
+        <div>
+          <%=f.file_field :image, accept: "image/png, image/jpeg", class:"content-xs"%>
+        </div>
+      </div>
+
+
+      <%=f.submit class: "button button-full-width button--secondary mb-4"%>
+    <%end%>
